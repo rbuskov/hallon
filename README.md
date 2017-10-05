@@ -8,6 +8,7 @@ Implementation of HAL (JSON Hypertext Application Language) according to the dra
 - Convention over configuration (should just work for simple scenarios)
 - Choice between fluent API and attributes
 - Allow arbitrary links and embedded resources (the domain model may not be complete, so don't limit the user to stuff that can be found via reflection)
+- Allow custom attributes on links (assuming this is allowed by the spec... could be used to specify actions, for example
 
 ## Examples
 Single resource:
@@ -71,3 +72,31 @@ Content-Type: application/hal+json
   "shippedToday": 20
 }
 ```
+
+## Solution Design
+
+- Create a JsonMediaTypeFormatter to handle "application/hal+json"
+- Once configured, all controllers WILL respond with the hal+json media type (naive but functional responses)
+- Behaviours can be configured further with Fluent API and/or attributes
+- Links (to actions) may or may not be available depending on the state of the resource
+- Decorate comntrollers with attributes, not domain models (makes testing hard?)
+- The formatter should be testable
+- How about a HAL clinet??!
+
+## Actions
+
+```
+ {
+     "_links": {
+       "self": { "href": "/orders/523" },
+       "cancel": { "href": "/orders/523/cancel", "action": true }
+
+Sometimes, it is required to expose an operation in the API that inherently is non RESTful. One example of such an operation is where you want to introduce a state change for a resource, but there are multiple ways in which the same final state can be achieved, and those ways actually differ in a significant but non-observable side-effect. Some may say such transitions are bad API design, but not having to model all state can greatly simplify an API. A great example of this is the difference between a “power off” and a “shutdown” of a virtual machine. Both will lead to a vm resource in the “DOWN” state. However, these operations are quite different.
+
+As a solution to such non-RESTful operations, an “actions” sub-collection can be used on a resource. Actions are basically RPC-like messages to a resource to perform a certain operation. The “actions” sub-collection can be seen as a command queue to which new action can be POSTed, that are then executed by the API. Each action resource that is POSTed, should have a “type” attribute that indicates the type of action to be performed, and can have arbitrary other attributes that parameterize the operation.
+
+It should be noted that actions should only be used as an exception, when there’s a good reason that an operation cannot be mapped to one of the standard RESTful methods. If an API has too many actions, then that’s an indication that either it was designed with an RPC viewpoint rather than using RESTful principles, or that the API in question is naturally a better fit for an RPC type model.
+
+
+
+http://restful-api-design.readthedocs.io
