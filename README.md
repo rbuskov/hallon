@@ -90,7 +90,7 @@ Content-Type: application/hal+json
      "_links": {
        "self": { "href": "/orders/523" },
        "cancel": { "href": "/orders/523/cancel", "action": true }
-
+```
 Sometimes, it is required to expose an operation in the API that inherently is non RESTful. One example of such an operation is where you want to introduce a state change for a resource, but there are multiple ways in which the same final state can be achieved, and those ways actually differ in a significant but non-observable side-effect. Some may say such transitions are bad API design, but not having to model all state can greatly simplify an API. A great example of this is the difference between a “power off” and a “shutdown” of a virtual machine. Both will lead to a vm resource in the “DOWN” state. However, these operations are quite different.
 
 As a solution to such non-RESTful operations, an “actions” sub-collection can be used on a resource. Actions are basically RPC-like messages to a resource to perform a certain operation. The “actions” sub-collection can be seen as a command queue to which new action can be POSTed, that are then executed by the API. Each action resource that is POSTed, should have a “type” attribute that indicates the type of action to be performed, and can have arbitrary other attributes that parameterize the operation.
