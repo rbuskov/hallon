@@ -6,9 +6,9 @@ Implementation of HAL (JSON Hypertext Application Language) according to the dra
 
 - Do not pollute domain models
 - Convention over configuration (should just work for simple scenarios)
-- Choice between fluent API and attributes
+- Choice between fluent API and attributes for configuration
 - Allow arbitrary links and embedded resources (the domain model may not be complete, so don't limit the user to stuff that can be found via reflection)
-- Allow custom attributes on links (assuming this is allowed by the spec... could be used to specify actions, for example
+- Allow for links to be made available dynamically, based on application state
 
 ## Examples
 Single resource:
