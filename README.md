@@ -1,5 +1,7 @@
 # Hallon - HAL Framework for .NET Web API 2
 
+Implementation of HAL (JSON Hypertext Application Language) as specified in: https://tools.ietf.org/html/draft-kelly-json-hal-08
+
 ## Design goals
 
 - Do not pollute domain models
