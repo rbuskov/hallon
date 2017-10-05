@@ -97,6 +97,8 @@ As a solution to such non-RESTful operations, an “actions” sub-collection ca
 
 It should be noted that actions should only be used as an exception, when there’s a good reason that an operation cannot be mapped to one of the standard RESTful methods. If an API has too many actions, then that’s an indication that either it was designed with an RPC viewpoint rather than using RESTful principles, or that the API in question is naturally a better fit for an RPC type model.
 
+## Links
 
 
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/action-results
 http://restful-api-design.readthedocs.io
