@@ -75,14 +75,14 @@ Content-Type: application/hal+json
 
 ## Solution Design
 
-- Create a JsonMediaTypeFormatter to handle "application/hal+json"
-- Use the standard JsonMediaTypeFormatter internally, so the new formatter can handle any type the internal formatter can handle
-- Once configured, all controllers the return domain objects WILL respond with the hal+json media type (naive but functional responses)
+- Create a HalMediaTypeFormatter to handle "application/hal+json"
+- Use the standard JsonMediaTypeFormatter internally, so the new formatter can handle any type that the standard formatter can handle
+- Once configured, all controllers that return domain objects WILL respond with the hal+json media type (naive but functional responses)
 - Behaviours can be configured further with Fluent API and/or attributes
 - Links (to actions) may or may not be available depending on the state of the resource
 - Decorate comntrollers with attributes, not domain models (makes testing hard?)
 - The formatter should be testable
-- How about a HAL clinet??!
+- How about a HAL client??!
 
 ## Actions
 
