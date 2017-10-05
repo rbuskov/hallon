@@ -1,12 +1,13 @@
 # Hallon - HAL Framework for .NET Web API 2
 
-Implementation of HAL (JSON Hypertext Application Language) according to the draft specification https://tools.ietf.org/html/draft-kelly-json-hal-08
+Implementation of HAL (JSON Hypertext Application Language) according to the draft specification: https://tools.ietf.org/html/draft-kelly-json-hal-08
 
 ## Design goals
 
 - Do not pollute domain models
-- Convention over configuration (should just work)
+- Convention over configuration (should just work for simple scenarios)
 - Choice between fluent API and attributes
+- Allow arbitrary links and embedded resources (the domain model may not be complete, so don't limit the user to stuff that can be found via reflection)
 
 ## Examples
 Single resource:
