@@ -25,3 +25,43 @@ GET /orders/523 HTTP/1.1
      "total": 10.20
    }
 ```
+
+```
+GET /orders HTTP/1.1
+Host: example.org
+Accept: application/hal+json
+
+HTTP/1.1 200 OK
+Content-Type: application/hal+json
+
+{
+  "_links": {
+    "self": { "href": "/orders" },
+    "next": { "href": "/orders?page=2" },
+    "find": { "href": "/orders{?id}", "templated": true }
+  },
+  "_embedded": {
+    "orders": [{
+        "_links": {
+          "self": { "href": "/orders/123" },
+          "basket": { "href": "/baskets/98712" },
+          "customer": { "href": "/customers/7809" }
+        },
+        "total": 30.00,
+        "currency": "USD",
+        "status": "shipped",
+      },{
+        "_links": {
+          "self": { "href": "/orders/124" },
+          "basket": { "href": "/baskets/97213" },
+          "customer": { "href": "/customers/12369" }
+        },
+        "total": 20.00,
+        "currency": "USD",
+        "status": "processing"
+    }]
+  },
+  "currentlyProcessing": 14,
+  "shippedToday": 20
+}
+```
