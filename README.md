@@ -1,11 +1,13 @@
 # Hallon - HAL Framework for .NET Web API 2
 
-Design goals
+## Design goals
 
 - Do not pollute domain models
 - Convention over configuration (should just work)
 - Choice between fluent API and attributes
 
+## Examples
+Single resource:
 ```
 GET /orders/523 HTTP/1.1
    Host: example.org
@@ -26,6 +28,7 @@ GET /orders/523 HTTP/1.1
    }
 ```
 
+Collection resource:
 ```
 GET /orders HTTP/1.1
 Host: example.org
