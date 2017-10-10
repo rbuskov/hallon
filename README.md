@@ -71,7 +71,7 @@ Content-Type: application/hal+json
   "shippedToday": 20
 }
 ```
-Note that "self" links are added automatically while other links must be configured by the developer.
+The default behaviour is to include all properties that have primitive values in the HAL output. Note that "self" links are added automatically while other links must be configured by the developer.
 
 ## Fluent Configuration
 
@@ -88,18 +88,26 @@ config.formatters.Add(new HalMediaFormatter(new HalConfig());
 ```
 
 ### Examples
-Add link to an object resource (in HalConfig):
+
+Add static link to a resource (in HalConfig):
 
 ```
 AddResource<Order>()
-   .WithLink("customer", order => $"customers/{order.Customer.Id}");
+   .WithLink("customers", "/customers");
+```
+
+Add a dynamic link to resource:
+
+```
+AddResource<Order>()
+   .WithLink("customer", order => $"/customers/{order.Customer.Id}");
 ```
 
 Add link conditionally:
 
 ```
 AddResource<Order>()
-   .WithLink("customer", order => $"customers/{order.Customer.Id}", order => order != null);
+   .WithLink("customer", order => $"/customers/{order.Customer.Id}", order => order.Customer != null);
 ```
 
 Configure a collection resource:
@@ -113,6 +121,7 @@ AddCollectionResource<Order>()
       .WithProperty("date", order => order.Date);
       .WithProperty("total", order => order.Total);
 ```
+Specifying one or more properties for a resource overrides the default behaviour of including all primitive properties in the output. Only primitive property values are allowed.
 
 ## Links
 
