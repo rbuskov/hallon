@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs
+/Hallon/bin/Debug
+/Hallon/obj
+/Hallon.Demo/bin
+/Hallon.Demo/obj
+/Hallon.UnitTests/obj
+/packages

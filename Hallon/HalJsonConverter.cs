@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -32,6 +33,8 @@ namespace Hallon
             {
                 var target = new JObject();
 
+                AddLinks(target);
+
                 foreach (var property in source.Properties())
                 {
                     if (property.Value.Type != JTokenType.Object && property.Value.Type != JTokenType.Array)
@@ -43,7 +46,40 @@ namespace Hallon
 
             void WriteArray(JArray array)
             {
-                throw new NotImplementedException();
+                var resource = new JObject();
+                var embedded = new JObject();
+                var items = new JArray();
+                var name = HttpContext.Current.Request.Url.LocalPath.Split('/').Last();
+
+                AddLinks(resource);
+
+                foreach (var source in array)
+                {
+                    if (source.Type == JTokenType.Object)
+                    {
+                        var target = new JObject();
+
+                        foreach (var property in ((JObject)source).Properties())
+                        {
+                            if (property.Value.Type != JTokenType.Object && property.Value.Type != JTokenType.Array)
+                                target.Add(property);
+                        }
+                        items.Add(target);
+                    }
+                }
+                embedded.Add(name, items);
+                resource.Add("_embedded", embedded);
+                resource.WriteTo(writer);
+            }
+
+            void AddLinks(JObject resource)
+            {
+                var links = new JObject();
+                var self = new JObject();
+
+                self.Add("href", HttpContext.Current.Request.Url.PathAndQuery);
+                links.Add("self", self);
+                resource.Add("_links", links);
             }
         }
 
