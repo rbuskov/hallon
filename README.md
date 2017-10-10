@@ -1,19 +1,19 @@
 # Hallon 
 
-Hallon is an implementation of the HAL standard (JSON Hypertext Application Language) for .NET Web API 2. Draft specification for HAL is available at https://tools.ietf.org/html/draft-kelly-json-hal-08.
+Hallon is an implementation of the HAL standard (JSON Hypertext Application Language) for .NET Web API 2. The draft specification for HAL is available at https://tools.ietf.org/html/draft-kelly-json-hal-08.
 
 ## Design goals
 
 - Do not pollute domain models
 - Convention over configuration (should just work for simple scenarios)
 - Choice between fluent API and attributes for configuration
-- Allow arbitrary links and embedded resources (the domain model may not be complete, so don't limit the user to stuff that can be found via reflection)
+- Allow arbitrary links and embedded resources (don't limit the developer to stuff that can be found via reflection)
 - Allow for links to be made available dynamically, based on application state
 
 ## Basic Use
 To use Hallon, simply configure the supplied HAL media formatter on start up:
 ```
-config.formatters.Add(new HalMediaFormatter();
+config.formatters.Add(new HalMediaFormatter());
 ```
 This will cause all controllers to respond to requests for "application/hal+json" with (basic) HAL complient JSON output, as shown below.
 
