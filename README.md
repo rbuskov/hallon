@@ -103,7 +103,7 @@ AddResource<Order>()
    .WithLink("customer", order => $"/customers/{order.Customer.Id}");
 ```
 
-Add link conditionally:
+Add a link conditionally:
 
 ```
 AddResource<Order>()
