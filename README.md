@@ -15,7 +15,7 @@ Hallon means "raspberry" in Swedish.
 ## Basic Use
 To use Hallon, simply add the supplied HAL media formatter on start up:
 ```
-config.Formatters.Add(new HalMediaFormatter());
+config.Formatters.Add(new HalMediaTypeFormatter());
 ```
 This will cause all controllers in the application to respond to requests for "application/hal+json" with basic HAL complient JSON output, as shown below.
 
