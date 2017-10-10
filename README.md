@@ -75,7 +75,7 @@ Note that "self" links are added automatically while other links must be configu
 
 ## Fluent Configuration
 
-Resources can be enriched with additional properties by passing a HAL configuration object to the media formatter during start up:
+Resources can be customized by passing a HAL configuration object to the media formatter during start up:
 ```
 class HalConfig : FluentHalConfiguration
 {
