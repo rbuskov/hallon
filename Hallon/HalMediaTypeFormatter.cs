@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
+using Hallon.Configuration;
 using Newtonsoft.Json;
 
 namespace Hallon
 {
     public class HalMediaTypeFormatter : JsonMediaTypeFormatter
     {
+        private readonly HalConfiguration configuration;
+
         public const string HalMediaType = "application/hal+json";
 
-        public HalMediaTypeFormatter()
+        public HalMediaTypeFormatter(HalConfiguration configuration)
         {
+            this.configuration = configuration;
             SupportedMediaTypes.Add(new MediaTypeHeaderValue(HalMediaType));
 
             SerializerSettings.Converters.Add(new HalJsonConverter());

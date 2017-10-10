@@ -1,0 +1,15 @@
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\Hallon.dll
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\Hallon.pdb
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\rasmus\Source\Repos\hallon\Hallon\obj\Debug\Hallon.csprojResolveAssemblyReference.cache
+C:\Users\rasmus\Source\Repos\hallon\Hallon\obj\Debug\Hallon.csproj.CoreCompileInputs.cache
+C:\Users\rasmus\Source\Repos\hallon\Hallon\obj\Debug\Hallon.dll
+C:\Users\rasmus\Source\Repos\hallon\Hallon\obj\Debug\Hallon.pdb
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\Hallon.dll.config
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\System.Web.Http.dll
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\System.Web.Http.xml
+C:\Users\rasmus\Source\Repos\hallon\Hallon\bin\Debug\System.Web.Http.WebHost.xml
