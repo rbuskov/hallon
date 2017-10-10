@@ -15,9 +15,9 @@ To use Hallon, simply configure the supplied HAL media formatter on start up:
 ```
 config.formatters.Add(new HalMediaFormatter());
 ```
-This will cause all controllers to respond to requests for "application/hal+json" with (basic) HAL complient JSON output, as shown below.
+This will cause all controllers to respond to requests for "application/hal+json" with basic HAL complient JSON output, as shown below.
 
-### Examples
+#### Examples
 Single object resource:
 ```
 GET /orders/523 HTTP/1.1
@@ -87,7 +87,7 @@ class HalConfig : FluentHalConfiguration
 config.formatters.Add(new HalMediaFormatter(new HalConfig());
 ```
 
-### Examples
+#### Examples
 
 Add static link to a resource (in HalConfig):
 
