@@ -123,7 +123,7 @@ AddCollectionResource<Order>()
       .WithProperty("date", order => order.Date);
       .WithProperty("total", order => order.Total);
 ```
-Specifying one or more properties for a resource overrides the default behaviour of including all primitive properties in the output. Only primitive property values are allowed.
+Specifying one or more properties for a resource overrides the default behaviour of including all properties in the output. Only primitive property values can be configured.
 
 ## Links
 
