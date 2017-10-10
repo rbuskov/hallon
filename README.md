@@ -2,6 +2,8 @@
 
 Hallon is an implementation of the HAL standard (JSON Hypertext Application Language) for .NET Web API 2. The draft specification for HAL is available at https://tools.ietf.org/html/draft-kelly-json-hal-08.
 
+Hallon means "raspberry" in Swedish.
+
 ## Design goals
 
 - Do not pollute domain models
