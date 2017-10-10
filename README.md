@@ -13,7 +13,7 @@ Hallon means "raspberry" in Swedish.
 - Allow for links to be made available dynamically, based on application state
 
 ## Basic Use
-To use Hallon, simply configure the supplied HAL media formatter on start up:
+To use Hallon, simply add the supplied HAL media formatter on start up:
 ```
 config.Formatters.Add(new HalMediaFormatter());
 ```
