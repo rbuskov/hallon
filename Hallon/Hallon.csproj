@@ -47,9 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes.cs" />
     <Compile Include="HalJsonConverter.cs" />
     <Compile Include="HalMediaTypeFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

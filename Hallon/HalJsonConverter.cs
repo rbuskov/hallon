@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 
 namespace Hallon
 {
@@ -14,6 +12,14 @@ namespace Hallon
         public override bool CanWrite => true;
 
         public override bool CanConvert(Type type) => type != null;
+
+        /*  Scenarios, based on the type of value passed to the converter:   
+         * 
+         *  - POCO: Do what you can...
+         *  - Resource: Include links, embedded resources
+         *  - Enumerable of POCO: Do what you can...
+         *  - Enumerable of Resource: Include links, embedded resources
+         */
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
