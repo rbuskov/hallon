@@ -19,7 +19,7 @@ namespace Hallon.Demo.Controllers
             Orders.Add(new Order() { Id = 4, Date = new DateTime(2017, 10, 7) });
 
             foreach (var order in Orders)
-                order.AddLink("self", $"api/orders/{order.Id}");
+                order.AddLink("self", $"/api/orders/{order.Id}");
         }
 
         [HttpGet, Route("{id}")]
