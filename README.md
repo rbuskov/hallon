@@ -6,9 +6,9 @@ Hallon means "raspberry" in Swedish.
 
 ## Design goals
 
-- Do not pollute domain models
-- Convention over configuration (should just work for simple scenarios)
-- HAL responses can be configured i 3 ways
+- Convention over configuration (should just work for POCO objects)
+- Flexibility: Provide suitable options for different scenarios (everything from simple CRUD to complex architectures)
+- HAL responses can be configured in 3 ways (can be combined in the same application):
    - Implementing Hallon.IResource (abstract base class provided)  
    - Adding attributes to classes and members (works for POCO and Resource objects) 
    - Via a fluent API that is detached from the domian model (works for POCO and Resource objects) 
@@ -20,7 +20,7 @@ To use Hallon, simply add the supplied HAL media formatter on start up:
 ```
 config.Formatters.Add(new HalMediaTypeFormatter());
 ```
-This will cause all controllers in the application to respond to requests for "application/hal+json" with basic HAL complient JSON output, as shown below.
+This will cause all controllers in the application to respond to requests for "application/hal+json" with basic HAL compliant JSON output, as shown below.
 
 #### Examples
 Single object resource:
