@@ -9,9 +9,9 @@ Hallon means "raspberry" in Swedish.
 - Do not pollute domain models
 - Convention over configuration (should just work for simple scenarios)
 - HAL responses can be configured i 3 ways
--- Implementing Hallon.IResource (abstract base class provided)  
--- Adding attributes to classes and members (both POCO and/or Resource objects) 
--- Via a fluent API that is detached from the domian model (both POCO and/or Resource objects) 
+   - Implementing Hallon.IResource (abstract base class provided)  
+   - Adding attributes to classes and members (both POCO and/or Resource objects) 
+   - Via a fluent API that is detached from the domian model (both POCO and/or Resource objects) 
 - Allow arbitrary links and embedded resources (don't limit the developer to stuff that can be found via reflection)
 - Allow for links to be made available dynamically, based on application state
 
@@ -80,7 +80,7 @@ The default behaviour is to include all properties that have primitive values in
 
 ## Implementing IResource
 
-...
+Basic implementation available, see demo.
 
 ## Attributes
 
