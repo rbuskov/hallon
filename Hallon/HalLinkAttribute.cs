@@ -2,8 +2,8 @@
 
 namespace Hallon
 {
+    // Not implemented
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-
     public class HalLinkAttribute : Attribute
     {
         private readonly string hrefPattern;

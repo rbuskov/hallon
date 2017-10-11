@@ -47,15 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes.cs" />
-    <Compile Include="HalJsonConverter.cs" />
+    <Compile Include="Convert\HalProperty.cs" />
+    <Compile Include="Convert\HalLink.cs" />
+    <Compile Include="Convert\HalResource.cs" />
+    <Compile Include="HalLinkAttribute.cs" />
+    <Compile Include="Convert\HalJsonConverter.cs" />
+    <Compile Include="Convert\HalMapper.cs" />
     <Compile Include="HalMediaTypeFormatter.cs" />
+    <Compile Include="IResource.cs" />
+    <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

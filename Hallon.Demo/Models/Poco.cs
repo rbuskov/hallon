@@ -2,7 +2,7 @@
 
 namespace Hallon.Demo.Models
 {
-    public class Order : Resource
+    public class Poco
     {
         public int Id { get; set; }
 

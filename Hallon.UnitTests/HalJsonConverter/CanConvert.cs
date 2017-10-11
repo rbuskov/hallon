@@ -5,11 +5,11 @@ namespace Hallon.UnitTests.HalJsonConverter
 {
     public class CanConvert
     {
-        private readonly Hallon.HalJsonConverter sut;
+        private readonly Convert.HalJsonConverter sut;
 
         public CanConvert()
         {
-            sut = new Hallon.HalJsonConverter();
+            sut = new Convert.HalJsonConverter();
         }
 
         [Fact]
