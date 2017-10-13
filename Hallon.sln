@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon", "Hallon\Hallon.csproj", "{EDE9D10D-279F-474A-BDFD-8FA6482819ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.UnitTests", "Hallon.UnitTests\Hallon.UnitTests.csproj", "{E09E4A00-0E65-48E9-BDF4-C18DCB5929E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo", "Hallon.Demo\Hallon.Demo.csproj", "{44438FDD-C865-468F-A741-424D9EA5B482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Client", "Hallon.Client\Hallon.Client.csproj", "{25323BB2-514B-4F2F-9D22-1B60AA680904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{44438FDD-C865-468F-A741-424D9EA5B482}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44438FDD-C865-468F-A741-424D9EA5B482}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44438FDD-C865-468F-A741-424D9EA5B482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25323BB2-514B-4F2F-9D22-1B60AA680904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25323BB2-514B-4F2F-9D22-1B60AA680904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25323BB2-514B-4F2F-9D22-1B60AA680904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25323BB2-514B-4F2F-9D22-1B60AA680904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
