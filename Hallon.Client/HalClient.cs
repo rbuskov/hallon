@@ -64,7 +64,6 @@ namespace Hallon.Client
         public ClientLink(Enum key, string href) : base(key.ToString(), href)
         {
         }
-
     }
 
     public class Example
