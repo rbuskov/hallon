@@ -86,12 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PocoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Poco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +107,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Hallon.Demo.Resources\Hallon.Demo.Resources.csproj">
+      <Project>{0c2c0d04-21a0-4227-83d1-5d6ac9eb50aa}</Project>
+      <Name>Hallon.Demo.Resources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hallon\Hallon.csproj">
       <Project>{EDE9D10D-279F-474A-BDFD-8FA6482819ED}</Project>
       <Name>Hallon</Name>

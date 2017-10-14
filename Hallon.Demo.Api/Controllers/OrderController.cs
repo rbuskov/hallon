@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using Hallon.Demo.Models;
+using Hallon.Demo.Resources;
 
 namespace Hallon.Demo.Controllers
 {
     [RoutePrefix("api/orders")]
-    public class OrdersController : ApiController
+    public class OrderController : ApiController
     {
         private static readonly List<Order> Orders = new List<Order>();
 
-        static OrdersController()
+        static OrderController()
         {
             Orders.Add(new Order() { Id = 1, Date = new DateTime(2017, 10, 1)});
             Orders.Add(new Order() { Id = 2, Date = new DateTime(2017, 10, 3)});

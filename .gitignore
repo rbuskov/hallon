@@ -1,12 +1,4 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs
-/Hallon/bin/Debug
-/Hallon/obj
-/Hallon.Demo/bin
-/Hallon.Demo/obj
-/Hallon.UnitTests/obj
+﻿/.vs
+*/bin
+*/obj
 /packages
-/Hallon.UnitTests/bin/Debug
