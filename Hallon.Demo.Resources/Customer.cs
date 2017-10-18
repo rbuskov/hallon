@@ -2,7 +2,7 @@
 
 namespace Hallon.Demo.Resources
 {
-    public class Customer
+    public class Customer : Resource
     {
         public int Id { get; set; }
 

@@ -43,5 +43,19 @@
     <Compile Include="DemoClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hallon.Client\Hallon.Client.csproj">
+      <Project>{25323BB2-514B-4F2F-9D22-1B60AA680904}</Project>
+      <Name>Hallon.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hallon.Demo.Resources\Hallon.Demo.Resources.csproj">
+      <Project>{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}</Project>
+      <Name>Hallon.Demo.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hallon\Hallon.csproj">
+      <Project>{EDE9D10D-279F-474A-BDFD-8FA6482819ED}</Project>
+      <Name>Hallon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

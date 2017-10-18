@@ -54,6 +54,7 @@
     <Compile Include="Convert\HalJsonConverter.cs" />
     <Compile Include="Convert\HalMapper.cs" />
     <Compile Include="HalMediaTypeFormatter.cs" />
+    <Compile Include="HalRoute.cs" />
     <Compile Include="IResource.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

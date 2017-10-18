@@ -5,81 +5,32 @@ namespace Hallon.Client
 {
     public class HalClient
     {
+        private string baseUrl;
+
+        public HalClient(string baseUrl)
+        {
+            this.baseUrl = baseUrl;
+        }
+
         public bool CanResolve(Resource resource, string link)
         {
             return false;
         }
 
-        public HalResponse<T> Delete<T>(Resource resource, string link)
+        public HttpStatusCode Get<T>(string url, out T resource)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
-        public HttpStatusCode Delete(Resource resource, string link)
+        public T Get<T>(Resource resource, string link)
         {
-            return HttpStatusCode.Accepted;
+            throw new NotImplementedException();
         }
 
-        public bool Delete<T>(Resource resource, Enum link, out HalResponse<T> response)
+        
+        public T Get<T>(string url)
         {
-            response = null;
-            return false;
-        }
-
-        public bool Delete<T>(Resource resource, string link, out HalResponse<T> response)
-        {
-            response = null;
-            return false;
-        }
-
-        public bool Delete(Resource resource, string link, out HttpStatusCode status)
-        {
-            status = HttpStatusCode.Accepted;
-            return false;
-        }
-    }
-
-    public class HalResponse<T>
-    {
-        public HttpStatusCode StatusCode;
-        public T Contents;
-    }
-
-    public enum OrderLink
-    {
-        Delete = 1
-    }
-
-    public class Order : Resource
-    {
-        public const string Delete = "delete";
-    }
-
-    public class ClientLink : Link
-    {
-        public ClientLink(string key, string href) : base(key, href)
-        {
-        }
-
-        public ClientLink(Enum key, string href) : base(key.ToString(), href)
-        {
-        }
-    }
-
-    public class Example
-    {
-        public Example()
-        {
-            var order = new Order();
-            var link = new ClientLink("","");
-            var client = new HalClient();
-
-            if (client.Delete<Order>(order, Order.Delete, out var response))
-            {
-                var newOrder = response.Contents;
-            }
-
-            var status = client.Delete(order, "");
+            throw new NotImplementedException();
         }
     }
 }
