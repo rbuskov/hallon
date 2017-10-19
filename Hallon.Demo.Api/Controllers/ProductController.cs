@@ -8,7 +8,7 @@ namespace Hallon.Demo.Controllers
     public class ProductController : ApiController
     {
         [HttpGet, Route("products/{id}")]
-        public Product Get(int id)
+        public ProductResource Get(int id)
         {
             return Repository.Products.FirstOrDefault(product => product.Id == id);
         }

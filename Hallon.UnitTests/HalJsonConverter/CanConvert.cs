@@ -3,6 +3,7 @@ using Xunit;
 
 namespace Hallon.UnitTests.HalJsonConverter
 {
+    /*
     public class CanConvert
     {
         private readonly Convert.HalJsonConverter sut;
@@ -24,4 +25,5 @@ namespace Hallon.UnitTests.HalJsonConverter
             Assert.True(sut.CanConvert(typeof(object)));
         }    
     }
+    */
 }

@@ -1,14 +1,14 @@
 ﻿namespace Hallon.Demo.Resources
 {
-    public class OrderLine
+    public class OrderLineResource : Resource
     {
         public int Id { get; set; }
 
-        public Order Order { get; set; }
+        public OrderResource OrderResource { get; set; }
 
         public int Quantity { get; set; }
 
-        public Product Product { get; set; }
+        public ProductResource Product { get; set; }
 
         public decimal Total => Quantity * Product?.Price ?? 0;
     }

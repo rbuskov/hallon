@@ -90,10 +90,15 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PocoController.cs" />
+    <Compile Include="Data\Customer.cs" />
+    <Compile Include="Data\Order.cs" />
+    <Compile Include="Data\OrderLine.cs" />
+    <Compile Include="Data\Product.cs" />
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Poco.cs" />
+    <Compile Include="Data\Poco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

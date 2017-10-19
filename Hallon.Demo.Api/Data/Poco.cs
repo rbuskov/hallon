@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hallon.Demo.Models
+namespace Hallon.Demo.Data
 {
     public class Poco
     {

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using Hallon.Client;
 using Hallon.Demo.Resources;
 
@@ -16,13 +12,20 @@ namespace Hallon.Demo.Client
             var client = new HalClient("http://example.org/api");
 
             // check status code (good idea when link is hardcoded)
-            if (client.Get<Order>("/orders/1", out var order) == HttpStatusCode.OK)
+            if (client.Get<OrderResource>("/orders/1", out var order) == HttpStatusCode.OK)
             {
-                // order. ...
-            }
+                // trust that the resource is there (will throw an exception if link is not found)
+                var customer = client.Get<CustomerResource>(order, "customer");
 
-            // trust that the resource is there (will throw an exception if link is not found)
-            var customer = client.Get<Customer>(order, "customer");
+                foreach (var line in order.Lines)
+                {
+                    // OrderResource line may or may not have an order link
+                    if (line.Links.TryGet("product", out var productLink))
+                    {
+                        var product = client.Get<ProductResource>(productLink);
+                    }
+                }
+            }
         }
     }
 }

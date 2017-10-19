@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
-using Hallon.Convert;
 using Newtonsoft.Json;
 
 namespace Hallon

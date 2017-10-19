@@ -10,7 +10,7 @@ namespace Hallon.Demo.Controllers
     public class OrderController : ApiController
     {
         [HttpGet, Route("orders/{id}")]
-        public Order Get(int id)
+        public OrderResource Get(int id)
         {
             var order = Repository.Orders.FirstOrDefault(o => o.Id == id) 
                 ?? throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -22,13 +22,13 @@ namespace Hallon.Demo.Controllers
         }
 
         [HttpGet, Route("orders")]
-        public IEnumerable<Order> Get()
+        public IEnumerable<OrderResource> Get()
         {
             return Repository.Orders;
         }
 
         [HttpGet, Route("customers/{id}/orders")]
-        public IEnumerable<Order> GetByCustomer(int id)
+        public IEnumerable<OrderResource> GetByCustomer(int id)
         {
             return Repository.Orders.Where(order => order.Customer.Id == id);
         }

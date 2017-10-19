@@ -47,12 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Convert\HalProperty.cs" />
-    <Compile Include="Convert\HalLink.cs" />
-    <Compile Include="Convert\HalResource.cs" />
+    <Compile Include="HalJsonConverter.cs" />
     <Compile Include="HalLinkAttribute.cs" />
-    <Compile Include="Convert\HalJsonConverter.cs" />
-    <Compile Include="Convert\HalMapper.cs" />
     <Compile Include="HalMediaTypeFormatter.cs" />
     <Compile Include="HalRoute.cs" />
     <Compile Include="IResource.cs" />

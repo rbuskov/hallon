@@ -4,7 +4,7 @@ namespace Hallon
 {
     public interface IResource
     {
-        IReadOnlyList<Link> Links { get; }
+        LinkTable Links { get; }
 
         void AddLink(string key, string href);
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using Hallon.Demo.Models;
+using Hallon.Demo.Data;
 
 namespace Hallon.Demo.Controllers
 {

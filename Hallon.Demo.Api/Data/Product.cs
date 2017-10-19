@@ -1,4 +1,4 @@
-﻿namespace Hallon.Demo.Resources
+﻿namespace Hallon.Demo.Data
 {
     public class Product
     {

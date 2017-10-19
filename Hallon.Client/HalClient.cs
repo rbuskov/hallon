@@ -32,5 +32,10 @@ namespace Hallon.Client
         {
             throw new NotImplementedException();
         }
+
+        public object Get<T>(Link productLink)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

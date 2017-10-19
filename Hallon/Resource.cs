@@ -1,16 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace Hallon
 {
     public class Resource : IResource
     {
-        private readonly List<Link> links = new List<Link>();
+        public LinkTable Links { get; } = new LinkTable();
 
-        public IReadOnlyList<Link> Links => links.AsReadOnly();
+        public void AddLink(string key, string href) 
+            => Links[key] = new Link(href);
+    }
 
-        public void AddLink(string key, string href)
+    public class LinkTable
+    {
+        public Link this[string key]
         {
-            links.Add(new Link(key, href));
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
+        }
+
+        public bool TryGet(string key, out Link link)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -3,6 +3,7 @@ using Xunit;
 
 namespace Hallon.UnitTests.HalJsonConverter
 {
+    /*
     public class WriteJson
     {
         private readonly Convert.HalJsonConverter sut;
@@ -20,4 +21,5 @@ namespace Hallon.UnitTests.HalJsonConverter
             Assert.Equal("null", json);
         }
     }
+    */
 }
