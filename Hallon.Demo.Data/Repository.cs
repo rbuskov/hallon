@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Hallon.Demo.Data
 {
@@ -23,9 +22,9 @@ namespace Hallon.Demo.Data
             Products.Add(new Product { Id = 1, Name = "Red Widget", Price = 29.95M });
             Products.Add(new Product { Id = 1, Name = "Yellow Widget", Price = 33.95M });
 
-            Orders.Add(new Order { Id = 1, Customer = Customers[0], OrderDate = new DateTime(2017, 1, 10), Status = OrderStatus.Draft});
-            Orders.Add(new Order { Id = 2, Customer = Customers[0], OrderDate = new DateTime(2017, 2, 10), Status = OrderStatus.Confirmed });
-            Orders.Add(new Order { Id = 3, Customer = Customers[1], OrderDate = new DateTime(2017, 3, 10), Status = OrderStatus.Confirmed });
+            Orders.Add(new Order { Id = 1, Customer = Customers[0], Date = new DateTime(2017, 1, 10)});
+            Orders.Add(new Order { Id = 2, Customer = Customers[0], Date = new DateTime(2017, 2, 10) });
+            Orders.Add(new Order { Id = 3, Customer = Customers[1], Date = new DateTime(2017, 3, 10) });
 
             Customers[0].Orders.Add(Orders[0]);
             Customers[0].Orders.Add(Orders[1]);
@@ -46,24 +45,6 @@ namespace Hallon.Demo.Data
             Orders[2].Lines.Add(OrderLines[4]);
             Orders[2].Lines.Add(OrderLines[5]);
             Orders[2].Lines.Add(OrderLines[6]);
-        }
-
-        public static Order InsertOrder(Customer customer)
-        {
-            var order = new Order
-            {
-                Id = Repository.Orders.Max(o => o.Id) + 1,
-                Customer = customer,
-                OrderDate = DateTime.UtcNow,
-                Status = OrderStatus.Draft
-            };
-
-            return order;
-        }
-
-        public static Order Update(Order order)
-        {
-            throw new NotImplementedException();
         }
     }
 }

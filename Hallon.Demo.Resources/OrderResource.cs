@@ -7,7 +7,11 @@ namespace Hallon.Demo.Resources
     {
         public int Id { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime OrderDate { get; set; }
+
+        public DateTime? ConfirmedDate { get; set; }
+
+        public DateTime? ShippedDate { get; set; }
 
         public List<OrderLineResource> Lines { get; } = new List<OrderLineResource>();
     }
