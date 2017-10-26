@@ -28,11 +28,15 @@ namespace Hallon.Demo.Controllers
         }
 
         [HttpGet, Route("customers/{id}/orders")]
-        public IEnumerable<OrderResource> GetByCustomer(int id)
+        public IHttpActionResult GetByCustomer(int id)
         {
-            return Repository.Orders
-                .Where(order => order.Customer.Id == id)
-                .Select(Mapper.Map<OrderResource>);
+            switch (Repository.FindCustomer(id))
+            {
+                case Success<Customer> _:
+                    return Ok(Repository.Orders.Where(order => order.Customer.Id == id).Select(Mapper.Map<OrderResource>));
+                case Failure failure:
+                    return BadRequest(failure.Message);
+            }
         }
 
         [HttpPost, Route("orders")]
@@ -62,7 +66,7 @@ namespace Hallon.Demo.Controllers
             order.Status = OrderStatus.Confirmed;
             order.ConfirmedDate = DateTime.UtcNow;
 
-            order = Repository.Update(order);
+            order = Repository.UpdateOrder(order);
 
             return Ok(Mapper.Map<OrderResource>(order));
         }
@@ -81,7 +85,7 @@ namespace Hallon.Demo.Controllers
             order.Status = OrderStatus.Shipped;
             order.ShippedDate = DateTime.UtcNow;
 
-            order = Repository.Update(order);
+            order = Repository.UpdateOrder(order);
 
             return Ok(Mapper.Map<OrderResource>(order));
         }
@@ -89,19 +93,13 @@ namespace Hallon.Demo.Controllers
         [HttpPost, Route("orders/{id}/cancel")]
         public IHttpActionResult Cancel(int id)
         {
-            var order = Repository.Orders.FirstOrDefault(o => o.Id == id);
-
-            if (order == null)
-                return BadRequest($"Order with ID '{id}' not found.");
-
-            if (order.Status == OrderStatus.Shipped)
-                return BadRequest($"Order '{id}' has status 'Shipped' and cannot be cancelled.");
-
-            order.Status = OrderStatus.Cancelled;
-
-            order = Repository.Update(order);
-
-            return Ok(Mapper.Map<OrderResource>(order));
+            switch (Repository.FindOrder(id))
+            {
+                case Success result:
+                    return Ok(Mapper.Map<OrderResource>(result.Value));
+                case Failure failure:
+                    return BadRequest(failure.Message);
+            }
         }
     }
 }

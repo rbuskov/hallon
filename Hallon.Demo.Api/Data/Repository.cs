@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
+using Hallon.Demo.Resources;
 
 namespace Hallon.Demo.Data
 {
@@ -48,6 +50,16 @@ namespace Hallon.Demo.Data
             Orders[2].Lines.Add(OrderLines[6]);
         }
 
+        public static IRepositoryResult FindOrder(int id)
+        {
+            var order = Orders.FirstOrDefault(o => o.Id == id);
+
+            if (order == null)
+                return new Failure($"Order with ID '{id}' not found.");
+
+            return new Success<Order>(order);
+        }
+
         public static Order InsertOrder(Customer customer)
         {
             var order = new Order
@@ -61,7 +73,12 @@ namespace Hallon.Demo.Data
             return order;
         }
 
-        public static Order Update(Order order)
+        public static Order UpdateOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static IResult FindCustomer(int id)
         {
             throw new NotImplementedException();
         }

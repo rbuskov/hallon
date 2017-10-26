@@ -102,6 +102,7 @@
     <Compile Include="Data\OrderStatus.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Repository.cs" />
+    <Compile Include="Data\RepositoryResults.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
