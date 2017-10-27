@@ -97,7 +97,6 @@
     <Compile Include="Data\Customer.cs" />
     <Compile Include="Data\Order.cs" />
     <Compile Include="Data\OrderLine.cs" />
-    <Compile Include="Data\OrderStatus.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Services\ProductService.cs" />
@@ -106,7 +105,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Data\Poco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
@@ -123,9 +121,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hallon.Demo.Resources\Hallon.Demo.Resources.csproj">
+    <ProjectReference Include="..\Hallon.Demo.Common\Hallon.Demo.Common.csproj">
       <Project>{0c2c0d04-21a0-4227-83d1-5d6ac9eb50aa}</Project>
-      <Name>Hallon.Demo.Resources</Name>
+      <Name>Hallon.Demo.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hallon\Hallon.csproj">
       <Project>{EDE9D10D-279F-474A-BDFD-8FA6482819ED}</Project>

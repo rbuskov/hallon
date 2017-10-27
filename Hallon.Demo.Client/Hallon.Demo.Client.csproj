@@ -48,9 +48,9 @@
       <Project>{25323BB2-514B-4F2F-9D22-1B60AA680904}</Project>
       <Name>Hallon.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Hallon.Demo.Resources\Hallon.Demo.Resources.csproj">
-      <Project>{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}</Project>
-      <Name>Hallon.Demo.Resources</Name>
+    <ProjectReference Include="..\Hallon.Demo.Common\Hallon.Demo.Common.csproj">
+      <Project>{0c2c0d04-21a0-4227-83d1-5d6ac9eb50aa}</Project>
+      <Name>Hallon.Demo.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hallon\Hallon.csproj">
       <Project>{EDE9D10D-279F-474A-BDFD-8FA6482819ED}</Project>

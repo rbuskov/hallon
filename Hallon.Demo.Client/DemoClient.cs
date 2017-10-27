@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using System.Net;
+﻿using System.Net;
 using Hallon.Client;
-using Hallon.Demo.Resources;
+using Hallon.Demo.Common;
 
 namespace Hallon.Demo.Client
 {
@@ -19,7 +18,7 @@ namespace Hallon.Demo.Client
 
                 foreach (var line in order.Lines)
                 {
-                    // OrderResource line may or may not have an order link
+                    // not sure if all lines have products
                     if (line.Links.TryGet("product", out var productLink))
                     {
                         var product = client.Get<ProductResource>(productLink);

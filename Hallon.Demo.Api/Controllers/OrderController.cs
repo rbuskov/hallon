@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Hallon.Demo.Data;
-using Hallon.Demo.Resources;
+using Hallon.Demo.Common;
 using Hallon.Demo.Services;
 
 namespace Hallon.Demo.Controllers

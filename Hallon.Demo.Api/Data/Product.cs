@@ -1,6 +1,4 @@
-﻿using Hallon.Demo.Resources;
-
-namespace Hallon.Demo.Data
+﻿namespace Hallon.Demo.Data
 {
     public class Product
     {
@@ -9,10 +7,5 @@ namespace Hallon.Demo.Data
         public string Name { get; set; }
 
         public decimal Price { get; set; }
-
-        public ProductResource ToResource()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

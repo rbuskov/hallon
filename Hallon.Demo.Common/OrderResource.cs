@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Hallon.Demo.Resources
+namespace Hallon.Demo.Common
 {
     public class OrderResource : Resource
     {

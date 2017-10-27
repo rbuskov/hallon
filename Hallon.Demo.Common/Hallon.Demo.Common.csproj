@@ -7,8 +7,8 @@
     <ProjectGuid>{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hallon.Demo.Resources</RootNamespace>
-    <AssemblyName>Hallon.Demo.Resources</AssemblyName>
+    <RootNamespace>Hallon.Demo.Common</RootNamespace>
+    <AssemblyName>Hallon.Demo.Common</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,6 +45,7 @@
     <Compile Include="CustomerResource.cs" />
     <Compile Include="OrderResource.cs" />
     <Compile Include="OrderLineResource.cs" />
+    <Compile Include="OrderStatus.cs" />
     <Compile Include="ProductRequest.cs" />
     <Compile Include="ProductResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

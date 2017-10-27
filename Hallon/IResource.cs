@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Hallon
+﻿namespace Hallon
 {
     public interface IResource
     {

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using Hallon.Demo.Data;
 
 namespace Hallon.Demo.Controllers
 {
@@ -18,16 +17,19 @@ namespace Hallon.Demo.Controllers
             Pocos.Add(new Poco() { Id = 3, Date = new DateTime(2017, 10, 5) });
         }
 
-        [HttpGet, Route("pocos/{id}")]
-        public Poco Get(int id)
-        {
-            return Pocos.FirstOrDefault(poco => poco.Id == id);
-        }
-
         [HttpGet, Route("pocos")]
-        public IEnumerable<Poco> Get()
+        public IEnumerable<Poco> Get() 
+            => Pocos;
+
+        [HttpGet, Route("pocos/{id}")]
+        public Poco Get(int id) 
+            => Pocos.FirstOrDefault(poco => poco.Id == id);
+
+        public class Poco
         {
-            return Pocos;
+            public int Id { get; set; }
+
+            public DateTime Date { get; set; }
         }
     }
 }

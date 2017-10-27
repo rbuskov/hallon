@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using AutoMapper;
 using Hallon.Demo.Data;
-using Hallon.Demo.Resources;
+using Hallon.Demo.Common;
 
 namespace Hallon.Demo
 {

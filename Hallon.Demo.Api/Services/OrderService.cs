@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Hallon.Demo.Data;
-using Hallon.Demo.Resources;
+using Hallon.Demo.Common;
 
 namespace Hallon.Demo.Services
 {

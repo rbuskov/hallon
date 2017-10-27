@@ -1,4 +1,4 @@
-﻿namespace Hallon.Demo.Resources
+﻿namespace Hallon.Demo.Common
 {
     public class OrderLineResource : Resource
     {

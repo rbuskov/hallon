@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Hallon.Demo.Resources;
+using Hallon.Demo.Common;
 
 namespace Hallon.Demo.Data
 {

@@ -1,4 +1,4 @@
-﻿namespace Hallon.Demo.Data
+﻿namespace Hallon.Demo.Common
 {
     public enum OrderStatus
     {

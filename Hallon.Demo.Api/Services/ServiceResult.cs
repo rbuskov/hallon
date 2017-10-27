@@ -1,9 +1,4 @@
-﻿using System;
-using System.Web.Http.Results;
-using System.Web.Management;
-using Hallon.Demo.Data;
-
-namespace Hallon.Demo.Services
+﻿namespace Hallon.Demo.Services
 {
     public class ServiceResult<T>
     {

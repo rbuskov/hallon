@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon", "Hallon\Hallon.csproj", "{EDE9D10D-279F-474A-BDFD-8FA6482819ED}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo.Api", "Hallon.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo.Client", "Hallon.Demo.Client\Hallon.Demo.Client.csproj", "{8741FBFC-03F3-43A7-AF95-4DE187138F0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo.Resources", "Hallon.Demo.Resources\Hallon.Demo.Resources.csproj", "{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo.Common", "Hallon.Demo.Common\Hallon.Demo.Common.csproj", "{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
