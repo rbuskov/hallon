@@ -40,14 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="CustomerRequest.cs" />
     <Compile Include="OrderRequest.cs" />
-    <Compile Include="CustomerResource.cs" />
-    <Compile Include="OrderResource.cs" />
-    <Compile Include="OrderLineResource.cs" />
+    <Compile Include="CustomerResources.cs" />
+    <Compile Include="OrderResources.cs" />
     <Compile Include="OrderStatus.cs" />
     <Compile Include="ProductRequest.cs" />
-    <Compile Include="ProductResource.cs" />
+    <Compile Include="ProductResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

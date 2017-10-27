@@ -21,7 +21,7 @@ namespace Hallon.Demo.Client
                     // not sure if all lines have products
                     if (line.Links.TryGet("product", out var productLink))
                     {
-                        var product = client.Get<ProductResource>(productLink);
+                        var product = client.Get<ProductResources>(productLink);
                     }
                 }
             }

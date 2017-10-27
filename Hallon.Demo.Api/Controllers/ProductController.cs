@@ -6,7 +6,7 @@ using Hallon.Demo.Services;
 namespace Hallon.Demo.Controllers
 {
     [RoutePrefix("api")]
-    public class ProductController : DemoController<Product, ProductResource>
+    public class ProductController : DemoController<Product, ProductResources, ProductSummaryResource>
     {
         private readonly ProductService service;
 

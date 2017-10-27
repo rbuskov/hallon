@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Hallon.Demo.Common;
 
 namespace Hallon.Demo.Data
 {
@@ -28,8 +29,19 @@ namespace Hallon.Demo.Data
 
         static Repository()
         {
-            Customers.Add(new Customer { Id = 1, Name = "Acme, Inc"});
-            Customers.Add(new Customer { Id = 2, Name = "Secondhand Submaries Ltd." });
+            Customers.Add(new Customer
+            {
+                Id = 1,
+                Name = "Acme, Inc",
+                Address = new Address { Street = "H.C. Andersens Boulevard 1", PostalCode = "1000", City = "Copenhagen", Country = Country.Denmark }
+            });
+
+            Customers.Add(new Customer
+            {
+                Id = 2,
+                Name = "Secondhand Submaries Ltd.",
+                Address = new Address { Street = "Peter Madsens Gatan", PostalCode = "2000", City = "Malmo", Country = Country.Sweden }
+            });
 
             Products.Add(new Product { Id = 1, Name = "Blue Widget", Price = 34.95M});
             Products.Add(new Product { Id = 2, Name = "Red Widget", Price = 29.95M });

@@ -1,6 +1,10 @@
 ﻿namespace Hallon.Demo.Common
 {
-    public class ProductResource : Resource
+    public class ProductSummaryResource : Resource
+    {
+    }
+
+    public class ProductResources : ProductSummaryResource
     {
         public int Id { get; set; }
 

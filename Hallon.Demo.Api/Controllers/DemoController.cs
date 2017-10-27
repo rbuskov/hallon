@@ -6,7 +6,7 @@ using Hallon.Demo.Services;
 
 namespace Hallon.Demo.Controllers
 {
-    public abstract class DemoController<TEntity, TResource> : ApiController
+    public abstract class DemoController<TEntity, TResource, TSummaryResource> : ApiController
     {
         protected IHttpActionResult Handle(ServiceResult<TEntity> result) 
             => result.Success
@@ -19,6 +19,6 @@ namespace Hallon.Demo.Controllers
                 : BadRequest(result.ErrorMessage);
 
         protected IHttpActionResult Handle(IEnumerable<TEntity> collection)
-            => Ok(collection.Select(item => Mapper.Map<TResource>(item)));
+            => Ok(collection.Select(item => Mapper.Map<TSummaryResource>(item)));
     }
 }
