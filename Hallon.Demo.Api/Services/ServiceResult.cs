@@ -36,5 +36,10 @@ namespace Hallon.Demo.Services
         {
             throw new System.NotImplementedException();
         }
+
+        public static ServiceResult<Order> InvalidOrderStatus(Order order, OrderStatus fromStatus, OrderStatus expectedStatus)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

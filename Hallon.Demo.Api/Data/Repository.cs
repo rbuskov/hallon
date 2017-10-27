@@ -5,16 +5,26 @@ namespace Hallon.Demo.Data
 {
     public static class Repository
     {
+        private static int nextOrderId;
         private static int nextOrderLineId;
+        private static int nextCustomerId;
+        private static int nextProductId;
 
-        public static List<Customer> Customers { get; } = new List<Customer>();
+        public static int NextOrderId => ++nextOrderId;
 
-        public static List<Product> Products { get; }  = new List<Product>();
+        public static int NextOrderLineId => ++nextOrderLineId;
+
+        public static int NextCustomerId => ++nextCustomerId;
+
+        public static int NextProductId => ++nextProductId;
 
         public static List<Order> Orders { get; } = new List<Order>();
 
         public static List<OrderLine> OrderLines { get; } = new List<OrderLine>();
-        public static int NextOrderLineId => ++nextOrderLineId;
+
+        public static List<Customer> Customers { get; } = new List<Customer>();
+
+        public static List<Product> Products { get; } = new List<Product>();
 
         static Repository()
         {
@@ -22,8 +32,8 @@ namespace Hallon.Demo.Data
             Customers.Add(new Customer { Id = 2, Name = "Secondhand Submaries Ltd." });
 
             Products.Add(new Product { Id = 1, Name = "Blue Widget", Price = 34.95M});
-            Products.Add(new Product { Id = 1, Name = "Red Widget", Price = 29.95M });
-            Products.Add(new Product { Id = 1, Name = "Yellow Widget", Price = 33.95M });
+            Products.Add(new Product { Id = 2, Name = "Red Widget", Price = 29.95M });
+            Products.Add(new Product { Id = 3, Name = "Yellow Widget", Price = 33.95M });
 
             Orders.Add(new Order { Id = 1, Customer = Customers[0], OrderDate = new DateTime(2017, 1, 10), Status = OrderStatus.Draft});
             Orders.Add(new Order { Id = 2, Customer = Customers[0], OrderDate = new DateTime(2017, 2, 10), Status = OrderStatus.Confirmed });
@@ -48,6 +58,11 @@ namespace Hallon.Demo.Data
             Orders[2].Lines.Add(OrderLines[4]);
             Orders[2].Lines.Add(OrderLines[5]);
             Orders[2].Lines.Add(OrderLines[6]);
+
+            nextOrderId = Orders.Count;
+            nextOrderLineId = OrderLines.Count;
+            nextCustomerId = Customers.Count;
+            nextProductId = Products.Count;
         }
     }
 }
