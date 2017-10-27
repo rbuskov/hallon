@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
 using Hallon.Demo.Data;
 using Hallon.Demo.Resources;
 using Hallon.Demo.Services;
@@ -10,10 +11,10 @@ namespace Hallon.Demo.Controllers
     {
         private readonly OrderService service;
 
-        public OrderController()
-        {
-            service = new OrderService();
-        }
+        public OrderController() 
+            => service = new OrderService();
+
+        // Get
 
         [HttpGet, Route("orders")]
         public IHttpActionResult Get()
@@ -26,6 +27,8 @@ namespace Hallon.Demo.Controllers
         [HttpGet, Route("customers/{id}/orders")]
         public IHttpActionResult GetByCustomer(int id)
             => Handle(service.GetByCustomer(id));
+
+        // Post
 
         [HttpPost, Route("orders")]
         public IHttpActionResult Create([FromBody] CreateOrderRequest request)

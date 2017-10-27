@@ -1,4 +1,5 @@
-﻿using System.Web.Http.Results;
+﻿using System;
+using System.Web.Http.Results;
 using System.Web.Management;
 using Hallon.Demo.Data;
 
@@ -33,11 +34,6 @@ namespace Hallon.Demo.Services
         }
 
         public static ServiceResult<T> OrderNotFound(int productId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public static ServiceResult<Order> InvalidOrderStatus(Order order, OrderStatus fromStatus, OrderStatus expectedStatus)
         {
             throw new System.NotImplementedException();
         }

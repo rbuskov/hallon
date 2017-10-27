@@ -13,7 +13,12 @@ namespace Hallon.Demo.Controllers
                 ? Ok(Mapper.Map<TResource>(result.Value)) as IHttpActionResult
                 : BadRequest(result.ErrorMessage);
 
-        protected IHttpActionResult Handle(IEnumerable<TEntity> collection) 
+        protected IHttpActionResult Handle(ServiceResult<IEnumerable<TEntity>> result)
+            => result.Success
+                ? Handle(result.Value)
+                : BadRequest(result.ErrorMessage);
+
+        protected IHttpActionResult Handle(IEnumerable<TEntity> collection)
             => Ok(collection.Select(item => Mapper.Map<TResource>(item)));
     }
 }
