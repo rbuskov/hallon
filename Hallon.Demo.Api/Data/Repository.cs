@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
-using Hallon.Demo.Resources;
 
 namespace Hallon.Demo.Data
 {
     public static class Repository
     {
+        private static int nextOrderLineId;
+
         public static List<Customer> Customers { get; } = new List<Customer>();
 
         public static List<Product> Products { get; }  = new List<Product>();
@@ -15,6 +14,7 @@ namespace Hallon.Demo.Data
         public static List<Order> Orders { get; } = new List<Order>();
 
         public static List<OrderLine> OrderLines { get; } = new List<OrderLine>();
+        public static int NextOrderLineId => ++nextOrderLineId;
 
         static Repository()
         {
@@ -48,39 +48,6 @@ namespace Hallon.Demo.Data
             Orders[2].Lines.Add(OrderLines[4]);
             Orders[2].Lines.Add(OrderLines[5]);
             Orders[2].Lines.Add(OrderLines[6]);
-        }
-
-        public static IRepositoryResult FindOrder(int id)
-        {
-            var order = Orders.FirstOrDefault(o => o.Id == id);
-
-            if (order == null)
-                return new Failure($"Order with ID '{id}' not found.");
-
-            return new Success<Order>(order);
-        }
-
-        public static Order InsertOrder(Customer customer)
-        {
-            var order = new Order
-            {
-                Id = Repository.Orders.Max(o => o.Id) + 1,
-                Customer = customer,
-                OrderDate = DateTime.UtcNow,
-                Status = OrderStatus.Draft
-            };
-
-            return order;
-        }
-
-        public static Order UpdateOrder(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static IResult FindCustomer(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

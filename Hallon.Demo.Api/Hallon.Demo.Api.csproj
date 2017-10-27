@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -102,12 +103,14 @@
     <Compile Include="Data\OrderStatus.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Repository.cs" />
-    <Compile Include="Data\RepositoryResults.cs" />
+    <Compile Include="Services\Messages.cs" />
+    <Compile Include="Services\ServiceResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Data\Poco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

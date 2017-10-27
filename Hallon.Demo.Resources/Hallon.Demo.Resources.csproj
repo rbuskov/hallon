@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateCustomerRequest.cs" />
+    <Compile Include="CreateOrderRequest.cs" />
     <Compile Include="CustomerResource.cs" />
     <Compile Include="OrderResource.cs" />
     <Compile Include="OrderLineResource.cs" />
