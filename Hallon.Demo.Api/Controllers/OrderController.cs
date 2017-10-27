@@ -31,8 +31,8 @@ namespace Hallon.Demo.Controllers
         // Post
 
         [HttpPost, Route("orders")]
-        public IHttpActionResult Create([FromBody] CreateOrderRequest request)
-            => Handle(service.Insert(request));
+        public IHttpActionResult Create([FromBody] OrderRequest request)
+            => Handle(service.Create(request));
 
         [HttpPost, Route("orders/{id}/confirm")]
         public IHttpActionResult Confirm(int id)

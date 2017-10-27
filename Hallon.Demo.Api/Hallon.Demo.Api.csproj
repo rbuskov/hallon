@@ -100,6 +100,8 @@
     <Compile Include="Data\OrderStatus.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Repository.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\ServiceResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

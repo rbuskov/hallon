@@ -32,7 +32,7 @@ namespace Hallon.Demo.Services
             return new ServiceResult<IEnumerable < Order >>(Repository.Orders.Where(o => o.Customer == customer));
         }
 
-        public ServiceResult<Order> Insert(CreateOrderRequest request)
+        public ServiceResult<Order> Create(OrderRequest request)
         {
             var customer = Repository.Customers.SingleOrDefault(c => c.Id == request.CustomerId);
 

@@ -1,6 +1,6 @@
 ﻿namespace Hallon.Demo.Resources
 {
-    public class CreateCustomerRequest
+    public class CustomerRequest
     {
         public string Name { get; set; }
     }

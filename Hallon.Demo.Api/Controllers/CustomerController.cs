@@ -1,28 +1,41 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System;
 using System.Web.Http;
 using Hallon.Demo.Data;
 using Hallon.Demo.Resources;
+using Hallon.Demo.Services;
 
 namespace Hallon.Demo.Controllers
 {
     [RoutePrefix("api")]
-    public class CustomerController : ApiController
+    public class CustomerController : DemoController<Customer, CustomerResource>
     {
-        [HttpGet, Route("customers/{id}")]
-        public CustomerResource Get(int id)
-        {
-            var customer = Repository.Customers.SingleOrDefault(c => c.Id == id) 
-                ?? throw new HttpResponseException(HttpStatusCode.BadRequest);
+        private readonly CustomerService service;
 
-            return customer.ToResource();
-        }
+        public CustomerController() 
+            => this.service = new CustomerService();
+
+        // Get
 
         [HttpGet, Route("customers")]
-        public IEnumerable<CustomerResource> Get()
-        {
-            return Repository.Customers.Select(c => c.ToResource());
-        }
+        public IHttpActionResult Get()
+            => Handle(service.Get());
+
+        [HttpGet, Route("customers/{id}")]
+        public IHttpActionResult Get(int id)
+            => Handle(service.Get(id));
+
+        // Post, Put, Delete
+
+        [HttpPost, Route("customers")]
+        public IHttpActionResult Create(CustomerRequest request)
+            => Handle(service.Create(request));
+
+        [HttpPut, Route("customers/{id}")]
+        public IHttpActionResult Update(CustomerRequest request)
+            => Handle(service.Update(request));
+
+        [HttpDelete, Route("customers/{id}")]
+        public IHttpActionResult Delete(int id)
+            => Handle(service.Delete(id));
     }
 }
