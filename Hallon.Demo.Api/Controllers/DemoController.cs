@@ -2,11 +2,15 @@
 using System.Linq;
 using System.Web.Http;
 using AutoMapper;
+using Hallon.Demo.Data;
 using Hallon.Demo.Services;
 
 namespace Hallon.Demo.Controllers
 {
-    public abstract class DemoController<TEntity, TResource, TSummaryResource> : ApiController
+    public abstract class DemoController<TEntity, TResource, TSummaryResource> : ApiController 
+        where TEntity : DemoEntity
+        where TResource : Resource
+        where TSummaryResource : Resource
     {
         protected IHttpActionResult Handle(ServiceResult<TEntity> result) 
             => result.Success

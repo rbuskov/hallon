@@ -1,7 +1,4 @@
-﻿using System;
-using Xunit;
-
-namespace Hallon.UnitTests.HalJsonConverter
+﻿namespace Hallon.UnitTests.HalJsonConverter
 {
     /*
     public class CanConvert

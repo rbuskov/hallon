@@ -30,8 +30,8 @@ namespace Hallon.Demo.Controllers
             => Handle(service.Create(request));
 
         [HttpPut, Route("customers/{id}")]
-        public IHttpActionResult Update(CustomerRequest request)
-            => Handle(service.Update(request));
+        public IHttpActionResult Update(int id, CustomerRequest request)
+            => Handle(service.Update(id, request));
 
         [HttpDelete, Route("customers/{id}")]
         public IHttpActionResult Delete(int id)

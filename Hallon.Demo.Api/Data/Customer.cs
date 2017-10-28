@@ -3,10 +3,8 @@ using Hallon.Demo.Common;
 
 namespace Hallon.Demo.Data
 {
-    public class Customer
+    public class Customer : DemoEntity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public Address Address { get; set; }

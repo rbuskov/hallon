@@ -6,7 +6,7 @@ using Hallon.Demo.Services;
 namespace Hallon.Demo.Controllers
 {
     [RoutePrefix("api")]
-    public class ProductController : DemoController<Product, ProductResources, ProductSummaryResource>
+    public class ProductController : DemoController<Product, ProductResource, ProductSummaryResource>
     {
         private readonly ProductService service;
 
@@ -30,8 +30,8 @@ namespace Hallon.Demo.Controllers
             => Handle(service.Create(request));
 
         [HttpPut, Route("products/{id}")]
-        public IHttpActionResult Update(ProductRequest request)
-            => Handle(service.Update(request));
+        public IHttpActionResult Update(int id, ProductRequest request)
+            => Handle(service.Update(id, request));
 
         [HttpDelete, Route("products/{id}")]
         public IHttpActionResult Delete(int id)

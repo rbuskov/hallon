@@ -1,34 +1,30 @@
-﻿using System;
-using Hallon.Demo.Data;
+﻿using Hallon.Demo.Data;
 using Hallon.Demo.Common;
+using Hallon.Demo.Services.Validators;
 
 namespace Hallon.Demo.Services
 {
-    public class ProductService
+    public class ProductService : DemoService<Product>
     {
-        public ServiceResult<Product> Get()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ServiceResult<Product> Get(int id)
-        {
-            throw new System.NotImplementedException();
-        }
+        public ProductService() : base(Repository.Products)
+        { }
 
         public ServiceResult<Product> Create(ProductRequest request)
-        {
-            throw new NotImplementedException();
-        }
+            => Create<ProductRequest, ProductRequestValidator>(request, () => new Product
+            {
+                Id = Repository.NextProductId,
+                Name = request.Name,
+                Price = request.Price
+            });
 
-        public ServiceResult<Product> Update(ProductRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResult<Product> Update(int id, ProductRequest request)
+            => Update<ProductRequest, ProductRequestValidator>(id, request, (product) =>
+            {
+                product.Name = request.Name;
+                product.Price = request.Price; 
+            });
 
         public ServiceResult<Product> Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+            => DeleteById<DeleteProductValidator>(id);
     }
 }

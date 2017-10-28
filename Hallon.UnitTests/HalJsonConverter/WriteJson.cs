@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using Xunit;
-
-namespace Hallon.UnitTests.HalJsonConverter
+﻿namespace Hallon.UnitTests.HalJsonConverter
 {
     /*
     public class WriteJson

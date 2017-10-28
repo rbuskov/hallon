@@ -1,9 +1,7 @@
 ﻿namespace Hallon.Demo.Data
 {
-    public class Product
+    public class Product : DemoEntity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public decimal Price { get; set; }

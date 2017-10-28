@@ -3,118 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using Hallon.Demo.Data;
 using Hallon.Demo.Common;
+using Hallon.Demo.Services.Validators;
 
 namespace Hallon.Demo.Services
 {
-    public class OrderService
+    public class OrderService : DemoService<Order>
     {
-        public IEnumerable<Order> Get() 
-            => Repository.Orders;
+        public OrderService() : base(Repository.Orders)
+        { }
 
-        public ServiceResult<Order> Get(int id)
-        {
-            switch (Repository.Orders.SingleOrDefault(o => o.Id == id))
-            {
-                case Order order:
-                    return new ServiceResult<Order>(order);
-                case null:
-                    return ServiceResult<Order>.OrderNotFound(id);
-            }
-        }
+        public ServiceResult<IEnumerable<Order>> GetByStatus(string statusName)
+            => Enum.TryParse<OrderStatus>(statusName, true, out var status)
+                ? GetMany(order => order.Status == status)
+                : new ServiceResult<IEnumerable<Order>>($"'{statusName}' is not a valid order status.");
 
         public ServiceResult<IEnumerable<Order>> GetByCustomer(int id)
         {
             var customer = Repository.Customers.SingleOrDefault(c => c.Id == id);
 
-            if (customer == null)
-                return ServiceResult<IEnumerable<Order>>.CustomerNotFound(id);
-
-            return new ServiceResult<IEnumerable < Order >>(Repository.Orders.Where(o => o.Customer == customer));
+            return customer == null
+                ? ServiceResult<IEnumerable<Order>>.CustomerNotFound()
+                : GetMany(o => o.Customer == customer);
         }
 
         public ServiceResult<Order> Create(OrderRequest request)
-        {
-            var customer = Repository.Customers.SingleOrDefault(c => c.Id == request.CustomerId);
-
-            if (customer == null)
-                return ServiceResult<Order>.CustomerNotFound(request.CustomerId);
-
-            Order order = new Order
+            => Create<OrderRequest, OrderRequestValidator>(request, () =>
             {
-                Id = Repository.NextOrderId,
-                Customer = customer,
-                OrderDate = DateTime.UtcNow,
-                Status = OrderStatus.Draft
-            };
-
-            foreach (var requestLine in request.Lines)
-            {
-                var product = Repository.Products.SingleOrDefault(p => p.Id == requestLine.ProductId);
-
-                if (product == null)
-                    return ServiceResult<Order>.ProductNotFound(requestLine.ProductId);
-
-                var orderLine = new OrderLine
+                var order = new Order
                 {
-                    Id = Repository.NextOrderLineId,
-                    Order = order,
-                    Quantity = requestLine.Quantity,
-                    Product = product
+                    Id = Repository.NextOrderId,
+                    Customer = Repository.Customers.Single(c => c.Id == request.CustomerId),
+                    OrderDate = DateTime.UtcNow,
+                    Status = OrderStatus.Draft
                 };
 
-                order.Lines.Add(orderLine);
-            }
+                foreach (var requestLine in request.Lines)
+                {
+                    var product = Repository.Products.Single(p => p.Id == requestLine.ProductId);
 
-            Repository.Orders.Add(order);
+                    var orderLine = new OrderLine
+                    {
+                        Id = Repository.NextOrderLineId,
+                        Order = order,
+                        Quantity = requestLine.Quantity,
+                        Product = product,
+                        Description = product.Name,
+                        UnitPrice = product.Price
+                    };
 
-            foreach (var line in order.Lines)
-                Repository.OrderLines.Add(line);
+                    order.Lines.Add(orderLine);
+                    Repository.OrderLines.Add(orderLine);
+                }
 
-            return new ServiceResult<Order>(order);
-        }
+                return order;
+            });
 
         public ServiceResult<Order> Confirm(int id)
-        {
-            switch (Repository.Orders.SingleOrDefault(o => o.Id == id))
-            {
-                case null:
-                    return ServiceResult<Order>.OrderNotFound(id);
-                case Order order when order.Status != OrderStatus.Draft:
-                    return new ServiceResult<Order>("Only orders with status 'draft' can be shipped.");
-                case Order order:
-                    order.Status = OrderStatus.Confirmed;
-                    order.ConfirmedDate = DateTime.UtcNow;
-                    return new ServiceResult<Order>(order);
-            }
-        }
+            => Update<ConfirmOrderValidator>(id, order => order.Status = OrderStatus.Confirmed);
 
         public ServiceResult<Order> Ship(int id)
-        {
-            switch (Repository.Orders.SingleOrDefault(o => o.Id == id))
-            {
-                case null:
-                    return ServiceResult<Order>.OrderNotFound(id);
-                case Order order when order.Status != OrderStatus.Confirmed:
-                    return new ServiceResult<Order>("Only orders with status 'confirmed' can be shipped.");
-                case Order order:
-                    order.Status = OrderStatus.Shipped;
-                    order.ShippedDate = DateTime.UtcNow;
-                    return new ServiceResult<Order>(order);
-            }
-        }
-
+            => Update<ShipOrderValidator>(id, order => order.Status = OrderStatus.Shipped);
+ 
         public ServiceResult<Order> Cancel(int id)
-        {
-            switch (Repository.Orders.SingleOrDefault(o => o.Id == id))
-            {
-                case null:
-                    return ServiceResult<Order>.OrderNotFound(id);
-                case Order order when order.Status != OrderStatus.Draft || order.Status == OrderStatus.Confirmed:
-                    return new ServiceResult<Order>("Only orders with status 'draft' or 'confirmed' can be cancelled.");
-                case Order order:
-                    order.Status = OrderStatus.Cancelled;
-                    return new ServiceResult<Order>(order);
-            }
-        }
+            => Update<CancelOrderValidator>(id, order => order.Status = OrderStatus.Cancelled);
     }
 }

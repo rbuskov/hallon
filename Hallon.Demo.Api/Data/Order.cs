@@ -4,10 +4,8 @@ using Hallon.Demo.Common;
 
 namespace Hallon.Demo.Data
 {
-    public class Order
+    public class Order : DemoEntity
     {
-        public int Id { get; set; }
-
         public OrderStatus Status { get; set; }
 
         public DateTime OrderDate { get; set; }
@@ -20,5 +18,4 @@ namespace Hallon.Demo.Data
 
         public List<OrderLine> Lines { get; } = new List<OrderLine>();
     }
-
 }
