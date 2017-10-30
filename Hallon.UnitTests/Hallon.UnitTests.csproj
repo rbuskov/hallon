@@ -71,8 +71,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HalJsonConverter\CanConvert.cs" />
-    <Compile Include="HalJsonConverter\WriteJson.cs" />
+    <Compile Include="HalJsonConverterTests\CanConvert.cs" />
+    <Compile Include="HalJsonConverterTests\WriteJson.cs" />
+    <Compile Include="LinkTableTests\StringIndexer.cs" />
+    <Compile Include="LinkTableTests\TryGet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

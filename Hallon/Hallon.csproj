@@ -48,9 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HalJsonConverter.cs" />
-    <Compile Include="HalLinkAttribute.cs" />
     <Compile Include="HalMediaTypeFormatter.cs" />
-    <Compile Include="HalRoute.cs" />
     <Compile Include="IResource.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="LinkTable.cs" />
