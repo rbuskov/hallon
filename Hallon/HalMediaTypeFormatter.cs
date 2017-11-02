@@ -27,7 +27,7 @@ namespace Hallon
 
         public override bool CanWriteType(Type type)
         {
-            return type != null;
+            return true;
         }
     }
 }
