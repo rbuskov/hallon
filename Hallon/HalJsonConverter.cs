@@ -16,10 +16,8 @@ namespace Hallon
         public override bool CanConvert(Type type)
             => true;
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            GenerateJson(value).WriteTo(writer);
-        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) 
+            => GenerateJson(value).WriteTo(writer);
 
         private JToken GenerateJson(object value)
         {
@@ -43,7 +41,6 @@ namespace Hallon
 
             return resourceObject;
         }
-
 
         private JObject GenerateResourceCollectionJson(IEnumerable<IResource> resources)
         {
@@ -74,9 +71,7 @@ namespace Hallon
             return linkArray;
         }
 
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
-            JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             throw new NotImplementedException();
         }

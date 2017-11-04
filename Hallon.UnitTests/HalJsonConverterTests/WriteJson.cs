@@ -7,7 +7,7 @@ namespace Hallon.UnitTests.HalJsonConverterTests
 {
     public class WriteJson
     {
-        private readonly Hallon.HalJsonConverter sut;
+        private readonly HalJsonConverter sut;
 
         public WriteJson()
         {
@@ -54,6 +54,21 @@ namespace Hallon.UnitTests.HalJsonConverterTests
         public void ShouldHandlePocos()
         {
             var poco = new TestPoco { Name = "test" };
+
+            var expected = "{\"Name\":\"test\"}";
+            var actual = JsonConvert.SerializeObject(poco, Formatting.None, sut);
+
+            Assert.Equal(expected, actual);
+        }
+
+        public void ShouldIgnoreNestedPocos()
+        {
+            var poco = new DeepPoco
+            {
+                Name = "test",
+                Property = new TestPoco(),
+                Collection = new List<TestPoco> { new TestPoco() }
+            };
 
             var expected = "{\"Name\":\"test\"}";
             var actual = JsonConvert.SerializeObject(poco, Formatting.None, sut);
@@ -118,6 +133,15 @@ namespace Hallon.UnitTests.HalJsonConverterTests
         public class TestPoco
         {
             public string Name { get; set; }
+        }
+
+        public class DeepPoco
+        {
+            public string Name { get; set; }
+
+            public TestPoco Property { get; set; }            
+
+            public List<TestPoco> Collection { get; set; }
         }
 
         public class TestResource : Resource
