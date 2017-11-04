@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo.Client", "Hallo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo.Common", "Hallon.Demo.Common\Hallon.Demo.Common.csproj", "{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hallon.Demo.UnitTests", "Hallon.Demo.UnitTests\Hallon.Demo.UnitTests.csproj", "{9E3FEE41-34F7-4F67-A3F0-8C1DBCFC0890}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C2C0D04-21A0-4227-83D1-5D6AC9EB50AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3FEE41-34F7-4F67-A3F0-8C1DBCFC0890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3FEE41-34F7-4F67-A3F0-8C1DBCFC0890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3FEE41-34F7-4F67-A3F0-8C1DBCFC0890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3FEE41-34F7-4F67-A3F0-8C1DBCFC0890}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

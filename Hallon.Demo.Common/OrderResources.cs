@@ -10,6 +10,8 @@ namespace Hallon.Demo.Common
         public OrderStatus Status { get; set; }
 
         public DateTime OrderDate { get; set; }
+
+        public string CustomerName { get; set; }
     }
 
     public class OrderResource : OrderSummaryResource
@@ -20,13 +22,13 @@ namespace Hallon.Demo.Common
 
         public decimal Total { get; set; }
 
-        public List<Line> Lines { get; } = new List<Line>();
+        public List<Line> Lines { get; set; }
 
         public class Line : Resource
         {
             public int Quantity { get; set; }
 
-            public string ProductName { get; set; }
+            public string Description { get; set; }
 
             public decimal UnitPrice { get; set; }
 

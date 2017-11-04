@@ -22,8 +22,8 @@ namespace Hallon.Demo.Controllers
         [HttpGet, Route("orders/{id}")]
         public IHttpActionResult Get(int id) 
             => Handle(service.Get(id));
-        [HttpGet, Route("orders/{status}")]
 
+        [HttpGet, Route("orders")]
         public IHttpActionResult GetByStatus(string status)
             => Handle(service.GetByStatus(status));
 

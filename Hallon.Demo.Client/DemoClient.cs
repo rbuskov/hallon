@@ -6,6 +6,7 @@ namespace Hallon.Demo.Client
 {
     public class DemoClient
     {
+        /*
         public DemoClient()
         {
             var client = new HalClient("http://example.org/api");
@@ -26,5 +27,6 @@ namespace Hallon.Demo.Client
                 }
             }
         }
+        */
     }
 }
